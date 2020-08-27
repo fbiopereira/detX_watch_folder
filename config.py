@@ -7,8 +7,8 @@ class Config:
     ENVIRONMENT = os.environ.get('ENVIRONMENT')
     LOG_PATH = os.environ.get('LOG_PATH')
     WATCH_FOLDER_PATH = os.environ.get('WATCH_FOLDER_PATH')
-    EXTENSIONS = os.environ.get(['EXTENSIONS'])
-    TIMEOUT_DETECTION = os.environ.get(['TIMEOUT_DETECTION'])
+    EXTENSIONS = str(os.environ.get('EXTENSIONS'))
+    TIMEOUT_DETECTION = os.environ.get('TIMEOUT_DETECTION')
 
 
 

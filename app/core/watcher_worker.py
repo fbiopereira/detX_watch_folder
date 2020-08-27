@@ -13,8 +13,8 @@ class WatcherWorker:
         self.watcher = PatternWatcher(
             callback=DetXFile.detx_file_action,
             workdir=app.flask_app.config['WATCH_FOLDER_PATH'],
-            ext=app.flask_app.config['EXTENSIONS'],
-            timeout=app.flask_app.config['TIMEOUT_DETECTION'],
+            ext=app.flask_app.config['EXTENSIONS'].split(','),
+            timeout=float(app.flask_app.config['TIMEOUT_DETECTION']),
             blocking=True,
             recursive=False)
 
