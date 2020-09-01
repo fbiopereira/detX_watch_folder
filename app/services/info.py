@@ -16,8 +16,12 @@ class InfoApi(Resource):
             "server_datetime": server_datetime,
             "environment_variables": [
                     {"LOG_PATH": app.flask_app.config['LOG_PATH']},
-                    {"SERVICE_NAME": app.flask_app.config['SERVICE_NAME'],
-                     "WATCH_FOLDER_PATH": app.flask_app.config['WATCH_FOLDER_PATH']}
+                    {
+                        "SERVICE_NAME": app.flask_app.config['SERVICE_NAME'],
+                        "WATCH_FOLDER_PATH": app.flask_app.config['WATCH_FOLDER_PATH'],
+                        "EXTENSIONS": app.flask_app.config['EXTENSIONS'],
+                        "TIMEOUT_DETECTION": app.flask_app.config['TIMEOUT_DETECTION'],
+                        "DETX_API": app.flask_app.config['DETX_API']}
                 ]
             }
 

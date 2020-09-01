@@ -9,7 +9,7 @@ class Config:
     WATCH_FOLDER_PATH = os.environ.get('WATCH_FOLDER_PATH')
     EXTENSIONS = str(os.environ.get('EXTENSIONS'))
     TIMEOUT_DETECTION = os.environ.get('TIMEOUT_DETECTION')
-
+    DETX_API = os.environ.get('DETX_API')
 
 
 class DevelopmentConfig(Config):

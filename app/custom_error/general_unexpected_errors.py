@@ -17,3 +17,11 @@ class WatchFolderUnexpectedError(BaseError):
             friendly_message="Erro inesperado no processo de watch folder do {}.".format(app.flask_app.config['SERVICE_NAME']),
             http_status=500)
 
+
+class WatchFolderDetXUnexpectedError(BaseError):
+    def __init__(self, message):
+        super().__init__(
+            code="WFUE002",
+            message="Erro inesperado no {0}: {1}".format(app.flask_app.config['SERVICE_NAME'], message),
+            friendly_message="Erro inesperado na chamada do DetX pelo watch folder do {}.".format(app.flask_app.config['SERVICE_NAME']),
+            http_status=500)
