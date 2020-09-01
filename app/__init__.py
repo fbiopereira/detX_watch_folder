@@ -6,7 +6,6 @@ from app.helpers import get_service_version, process_async
 from prometheus_flask_exporter import PrometheusMetrics
 from .services import HealthApi, InfoApi, support_namespace
 from app.core import WatcherWorker
-
 import os
 
 config_name = os.environ.get('ENVIRONMENT')
@@ -27,6 +26,4 @@ api = Api(app=flask_app,  doc="/docs", version=get_service_version(),
 api.add_namespace(support_namespace.support_namespace, path="/monit")
 
 watcher_worker = WatcherWorker()
-process_async(watcher_worker.start)
-
-pass
+watcher_worker.start()
