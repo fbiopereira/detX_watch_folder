@@ -17,7 +17,7 @@ class WatcherEventHandler:
         my_name = "__init__"
         app.log.info(class_name=self.my_name, method_name=my_name, file_name=None,
                      message="::Criando o WatcherEventHandler::callback={}::patterns={}::timeout={}"
-                     .format(callback, patterns, timeout))
+                     .format(str(callback), str(patterns), str(timeout)))
 
         self.callback = callback
         self.timeout = timeout
@@ -53,8 +53,8 @@ class WatcherEventHandler:
                     app.log.error(class_name=self.my_name, code=custom_err.code, method_name=my_name,
                                   message=custom_err.message, file_name=None)
 
-                app.log.info(class_name=self.my_name, method_name=my_name, file_name=self.files[file],
-                             message="::GC FILE={}".format(self.files[file]))
+                app.log.info(class_name=self.my_name, method_name=my_name, file_name=str(self.files[file]),
+                             message="::GC FILE={}".format(str(self.files[file])))
 
                 del self.files[file]
 
@@ -65,7 +65,7 @@ class WatcherEventHandler:
             self.files[event.src_path] = datetime.now()
 
             app.log.info(class_name=self.my_name, method_name=my_name, file_name=None,
-                         message="::File created={}::".format(event))
+                         message="::File created={}::".format(str(event)))
 
     def _update_handler(self, event):
         my_name = "_update_handler"
@@ -75,4 +75,4 @@ class WatcherEventHandler:
             self.files[event.src_path] = datetime.now()
 
             app.log.info(class_name=self.my_name, method_name=my_name, file_name=None,
-                         message="::File modified={}::".format(event))
+                         message="::File modified={}::".format(str(event)))

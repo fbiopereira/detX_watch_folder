@@ -1,0 +1,17 @@
+version: "3"
+
+services:
+  detX-watch-service:
+    image: detx-watch-service
+    restart: always
+    build:
+      dockerfile: Dockerfile
+      context: ./Dockerfile
+
+    ports:
+      - 5001:80
+
+    volumes:
+      - /Users/fabiopereira/Downloads/videos/watch:/mnt/videos_to_check
+
+

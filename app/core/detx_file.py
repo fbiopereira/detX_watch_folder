@@ -17,7 +17,8 @@ class DetXFile:
             self.file_name = self.get_file_name(file)
             self.create_body_json()
 
-            app.log.info(class_name=self.my_name, method_name=my_name, file_name=self.file_name,
+
+            app.log.info(class_name=self.my_name, method_name=my_name, file_name=str(self.file_name),
                          message="::Iniciando o processo de chamada do DetX::")
 
             response = requests.post(self.detx_api_url, json=self.json_body, timeout=None)
@@ -32,7 +33,7 @@ class DetXFile:
 
         except Exception as ex:
             custom_err = WatchFolderDetXUnexpectedError('Erro no post enviado para o DetX. URL: {} BODY: {} '
-                                                        'Exception: {}'.format(self.detx_api_url, self.json_body, str(ex)))
+                                                        'Exception: {}'.format(str(self.detx_api_url), str(self.json_body), str(ex)))
             self.error_log(custom_err, my_name)
 
         pass
@@ -46,5 +47,5 @@ class DetXFile:
 
     def create_body_json(self):
         self.json_body = {
-            "file_name": self.file_name
+            "file_name": str(self.file_name)
         }

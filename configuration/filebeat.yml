@@ -1,0 +1,18 @@
+filebeat.prospectors:
+- type: log
+  enabled: true
+  paths:
+    - /var/log/app/*.log
+  json.keys_under_root: true
+  json.add_error_key: true
+
+filebeat.config.modules:
+  path: /filebeat/modules.d/*.yml
+  reload.enabled: false
+
+setup.template.settings:
+  index.number_of_shards: 3
+
+output.elasticsearch:
+  hosts: ["10.62.12.41:9200"]
+

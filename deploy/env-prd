@@ -1,0 +1,8 @@
+ENVIRONMENT=production
+SERVICE_NAME=dtex-service
+GIT_TAG=v1.0.0.0
+LOG_PATH=/var/log/app/
+WATCH_FOLDER_PATH=/mnt/videos_to_check/
+EXTENSIONS=*.mxf,*.MXF
+TIMEOUT_DETECTION=10
+DETX_API=http://192.168.0.113:5000/api/v1/checkvideo
